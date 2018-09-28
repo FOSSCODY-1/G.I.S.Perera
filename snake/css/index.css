@@ -1,0 +1,21 @@
+
+
+body, html{
+    height: 100vh;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 44rem;
+    min-width: 30rem;
+    background: url("../img/background.jpg");
+    background-size: cover;
+    background-position: right;
+}
+
+.numbers{
+    color: white;
+    font-size: 20px;
+}

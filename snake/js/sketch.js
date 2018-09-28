@@ -4,7 +4,7 @@ var score = 0;
 
 
 function  updateScore(score) {
-    document.getElementById("p1").innerHTML = (score);
+    document.getElementById("score").innerHTML = (score);
 }
 
 function setup() {
@@ -16,7 +16,9 @@ function setup() {
 }
 
 function draw() {
-  background(220);
+strokeWeight(10);
+  background(60,179,113);
+    noStroke();
   snake1.death();
   snake1.move();
     snake1.update();
@@ -28,7 +30,7 @@ function draw() {
 
   }
 
-  fill(255,0,100);
+  fill(154,205,50);
   rect(snack.x,snack.y,Scale,Scale);
 }
 
