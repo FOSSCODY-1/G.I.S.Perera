@@ -1,14 +1,14 @@
 var snake1;
 var snack;
 var score = 0;
+var high_score = localStorage.getItem("high_score");
 
 
-function  updateScore(score) {
-    document.getElementById("score").innerHTML = (score);
-}
+updateScore = (score) =>  document.getElementById("score").innerHTML = (score);
 
 function setup() {
   createCanvas(600,600);
+  img = loadImage("../img/apple.png");
   snake1 = new Snake();
   frameRate(5);
   findLocation();
@@ -16,11 +16,11 @@ function setup() {
 }
 
 function draw() {
-strokeWeight(10);
+
   background(60,179,113);
     noStroke();
-  snake1.death();
-  snake1.move();
+    snake1.death();
+    snake1.move();
     snake1.update();
   if(snake1.eat(snack)){
       score++;
@@ -31,7 +31,7 @@ strokeWeight(10);
   }
 
   fill(154,205,50);
-  rect(snack.x,snack.y,Scale,Scale);
+  ellipse(snack.x,snack.y,Scale,Scale);
 }
 
 

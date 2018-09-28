@@ -1,4 +1,5 @@
 const Scale = 10;
+let i;
 
 class Snake {
     constructor() {
@@ -14,7 +15,7 @@ class Snake {
 
     move() {
         if(this.total === this.tail.length){
-            for(var i = 0; i< this.tail.length-1;i++){
+            for(i = 0; i< this.tail.length-1;i++){
                 this.tail[i] = this.tail[i+1];
             }
         }
@@ -29,12 +30,17 @@ class Snake {
     }
 
     death() {
-        for(var i = 0 ; i< this.tail.length;i++){
-            var position = this.tail[i];
-            var Distance = dist(this.x,this.y,position.x,position.y);
+        for(i = 0 ; i< this.tail.length; i++){
+            let position = this.tail[i];
+            let Distance = dist(this.x, this.y, position.x, position.y);
             if(Distance < 1){
                 console.log("call death");
-                alert("da");
+
+                if(this.total > high_score){
+                    high_score = this.total;
+                    localStorage.setItem("high_score", high_score);
+                }
+                alert(high_score);
                 this.total = 0;
                 this.tail = [];
                 noLoop();
@@ -43,17 +49,17 @@ class Snake {
     }
 
     update() {
-        fill(255);
-        for(var i = 0;i < this.tail.length;i++){
+        fill(51);
+        for(i = 0; i < this.tail.length; i++){
             rect(this.tail[i].x,this.tail[i].y,Scale,Scale);
         }
-        fill(255);
+        fill(51);
         rect(this.x,this.y,Scale,Scale);
     }
 
     eat(position) {
 
-        var distance = dist(this.x,this.y,position.x,position.y);
+        const distance = dist(this.x, this.y, position.x, position.y);
 
         if(distance < 1){
             this.total++;
