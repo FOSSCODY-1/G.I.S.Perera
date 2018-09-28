@@ -1,8 +1,14 @@
 var snake1;
 var snack;
 var score = 0;
+
+
+function  updateScore(score) {
+    document.getElementById("p1").innerHTML = (score);
+}
+
 function setup() {
-  createCanvas(400,400);
+  createCanvas(600,600);
   snake1 = new Snake();
   frameRate(5);
   findLocation();
@@ -16,6 +22,7 @@ function draw() {
     snake1.update();
   if(snake1.eat(snack)){
       score++;
+      updateScore(score);
       console.log(score);
       findLocation();
 

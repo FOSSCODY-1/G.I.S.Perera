@@ -1,28 +1,18 @@
-const Scale = 100;
+const Scale = 10;
 
-function Snake() {
-    this.x = 0;
-    this.y = 0;
-    this.xSpeed = 1;
-    this.ySpeed = 0;
-    this.tail = [];
-    this.total = 0;
+class Snake {
+    constructor() {
+        this.x = 0;
+        this.y = 0;
+        this.xSpeed = 1;
+        this.ySpeed = 0;
+        this.tail = [];
+        this.total = 0;
 
 
-
-
-    this.death = function () {
-        for(var i = 0 ; i< this.tail.length;i++){
-            var position = this.tail[i];
-            var Distance = dist(this.x,this.y,position.x,position.y);
-            if(Distance < 1){
-                console.log("call death");
-                total = 0 ;
-                this.tail = [];
-            }
-        }
     }
-    this.move = function () {
+
+    move() {
         if(this.total === this.tail.length){
             for(var i = 0; i< this.tail.length-1;i++){
                 this.tail[i] = this.tail[i+1];
@@ -37,11 +27,22 @@ function Snake() {
         this.x = constrain(this.x,0,width-Scale);
         this.y = constrain(this.y,0,height-Scale);
     }
-    this.dir = function (x,y) {
-        this.xSpeed = x;
-        this.ySpeed = y;
+
+    death() {
+        for(var i = 0 ; i< this.tail.length;i++){
+            var position = this.tail[i];
+            var Distance = dist(this.x,this.y,position.x,position.y);
+            if(Distance < 1){
+                console.log("call death");
+                alert("da");
+                this.total = 0;
+                this.tail = [];
+                noLoop();
+            }
+        }
     }
-    this.update = function () {
+
+    update() {
         fill(255);
         for(var i = 0;i < this.tail.length;i++){
             rect(this.tail[i].x,this.tail[i].y,Scale,Scale);
@@ -49,8 +50,8 @@ function Snake() {
         fill(255);
         rect(this.x,this.y,Scale,Scale);
     }
-    
-    this.eat = function (position) {
+
+    eat(position) {
 
         var distance = dist(this.x,this.y,position.x,position.y);
 
@@ -61,6 +62,11 @@ function Snake() {
             return false;
         }
 
-        
+
+    }
+
+    dir(x, y) {
+        this.xSpeed = x;
+        this.ySpeed = y;
     }
 }
