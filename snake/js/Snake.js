@@ -1,4 +1,4 @@
-const Scale = 10;
+const Scale = 20;
 let i;
 
 class Snake {
@@ -43,6 +43,7 @@ class Snake {
                 alert(high_score);
                 this.total = 0;
                 this.tail = [];
+                window.location.replace("score.html");
                 noLoop();
             }
         }

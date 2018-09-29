@@ -4,7 +4,7 @@ body{
     font-size: 40px;
 }
 
-.link,.main{
+.main,.link2,.\link1{
     color: aliceblue;
     position:absolute;
     text-align: center;
@@ -14,21 +14,24 @@ body{
     padding: 10px;
 
 }
+.link2{
+    top:70%;
+}
 .main{
-    top: 10%;
+    top: 15%;
 }
 
 .btn {
-    border-radius: 10px;
-    background-color: #1cf417;
-    border: none;
-    color: white;
-    padding: 16px 32px;
-    text-align: center;
-    font-size: 40px;
-    margin: 4px 2px;
-    opacity: 1;
-    transition: 0.3s;
+border-radius: 10px;
+background-color: #1cf417;
+border: none;
+color: white;
+padding: 16px 32px;
+text-align: center;
+font-size: 40px;
+margin: 4px 2px;
+opacity: 1;
+transition: 0.3s;
 }
 .btn:hover {opacity: 0.6}
 
