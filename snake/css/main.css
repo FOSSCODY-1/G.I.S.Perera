@@ -4,18 +4,19 @@ body{
     font-size: 40px;
 }
 
-.link,.main{
+.main,.link{
     color: aliceblue;
     position:absolute;
     text-align: center;
-    top: 50%;
+    top: 60%;
     width: 100%;
     line-height: 0.5em;
     padding: 10px;
 
 }
+
 .main{
-    top: 10%;
+    top: 15%;
 }
 
 .btn {

@@ -33,16 +33,17 @@ class Snake {
         for(i = 0 ; i< this.tail.length; i++){
             let position = this.tail[i];
             let Distance = dist(this.x, this.y, position.x, position.y);
-            if(Distance < 1){
-                console.log("call death");
-
+            if(Distance < 1.1){
+                alert("Your Score is " + this.total);
                 if(this.total > high_score){
                     high_score = this.total;
                     localStorage.setItem("high_score", high_score);
+                    alert("congratulations new High Score" + high_score);
+
                 }
-                alert(high_score);
                 this.total = 0;
                 this.tail = [];
+
                 window.location.replace("score.html");
                 noLoop();
             }
